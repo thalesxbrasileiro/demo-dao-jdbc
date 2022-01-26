@@ -103,6 +103,14 @@ public class SellerDaoJDBC implements SellerDao {
 			st.setInt(1, id);
 			
 			st.executeUpdate();
+			
+			// Se quiser colocar uma exceção, quando tentar deletar um id que não existe
+			
+			/* 
+			int rows = st.executeUpdate();
+			if (rows == 0) {
+				throw new ...
+			}*/
 		}
 		catch (SQLException e) {
 			throw new DbException(e.getMessage());

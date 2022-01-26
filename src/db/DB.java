@@ -10,7 +10,9 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class DB {
-
+	
+	// Conectando com o BD do JDBC
+ 
 	private static Connection conn = null;
 	
 	public static Connection getConnection() {
@@ -37,6 +39,8 @@ public class DB {
 		}
 	}
 	
+	// Carregando as propriedades definidas no arquivo db.properties  
+	
 	private static Properties loadProperties() {
 		try (FileInputStream fs = new FileInputStream("db.properties")) {
 			Properties props = new Properties();
@@ -48,6 +52,8 @@ public class DB {
 		}
 	}
 	
+	// Métodos auxiliares fechar o objeto, ou seja, para não ficar adicionando um try/catch lá no MAIN
+	
 	public static void closeStatement(Statement st) {
 		if (st != null) {
 			try {
@@ -58,6 +64,8 @@ public class DB {
 		}
 	}
 
+	// Métodos auxiliares fechar o objeto, ou seja, para não ficar adicionando um try/catch lá no MAIN
+	
 	public static void closeResultSet(ResultSet rs) {
 		if (rs != null) {
 			try {
